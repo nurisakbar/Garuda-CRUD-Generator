@@ -4,7 +4,7 @@ CRUD Generator Yang Saya Gunakan Adalah Harviacode Yang Sudah Dimodifikasi Agar 
 
 # CARA INSTALL
 1.silahkan clone atau download repository ini.<br>
-2.silahkan extrack dan rename nama folder menjadi cigenerator.<br>
+2.silahkan extrack dan rename nama folder menjadi garuda_crud_generator.<br>
 3.buat sebuah database baru dengan nama cigenerator lalu import file cigenerator.sql.<br>
 4.buka web browser dan masukan http://localhost/cigenerator/ pada address bar.
 
@@ -32,8 +32,6 @@ Fungsi ini digunaan untuk membuat select2 dinamis dengan data yang berasal dari 
 Contoh : <br>
 ``` <?php echo select2_dinamis('ListUser','tbl_users','nama_lengkap','Masukan Nama Users') ?>```
 
-#Credit
-1. Harviacode 
-2. AdminLTE
-
-[I'm an inline-style link](https://www.google.com)
+### Credit : 
+1.[Harviacode ](http://harviacode.com/)
+2.[AdminLTE](https://adminlte.io/)
