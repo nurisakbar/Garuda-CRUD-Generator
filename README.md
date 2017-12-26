@@ -1,5 +1,5 @@
-# CIGENERATOR
-CIGENERATOR adalah CRUD Generator Yang Dibuat Diatas Framework Codeigniter 3, Library Datatables Serverside Untuk Menampilkan Data Dan Template AdminLTE.<br>
+# Garuda CRUD Generator
+Garuda CRUD Generator adalah CRUD Generator Untuk Framework Codeigniter 3, Library Datatables Serverside Untuk Menampilkan Data Dan Template AdminLTE.<br>
 CRUD Generator Yang Saya Gunakan Adalah Harviacode Yang Sudah Dimodifikasi Agar Hasil Generate Filenya Sesuai Dengan AdminLTE.
 
 # CARA INSTALL
@@ -31,3 +31,9 @@ Fungsi ini digunaan untuk membuat select2 dinamis dengan data yang berasal dari 
 ``` <?php echo select2_dinamis(NamaElement,NamaTabel,NamaField,PlaceHolder);?>```<br>
 Contoh : <br>
 ``` <?php echo select2_dinamis('ListUser','tbl_users','nama_lengkap','Masukan Nama Users') ?>```
+
+#Credit
+1. Harviacode 
+2. AdminLTE
+
+[I'm an inline-style link](https://www.google.com)
