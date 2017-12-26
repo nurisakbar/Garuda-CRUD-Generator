@@ -33,5 +33,5 @@ Contoh : <br>
 ``` <?php echo select2_dinamis('ListUser','tbl_users','nama_lengkap','Masukan Nama Users') ?>```
 
 ### Credit : 
-1.[Harviacode ](http://harviacode.com/)
-2.[AdminLTE](https://adminlte.io/)
+1.[Harviacode ](http://harviacode.com/) <br>
+2.[AdminLTE](https://adminlte.io/)<br>
