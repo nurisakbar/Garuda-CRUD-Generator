@@ -29,13 +29,13 @@ class User extends CI_Controller
         $row = $this->User_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_users' => $row->id_users,
-		'full_name' => $row->full_name,
-		'email' => $row->email,
-		'password' => $row->password,
-		'images' => $row->images,
+		'id_users'      => $row->id_users,
+		'full_name'     => $row->full_name,
+		'email'         => $row->email,
+		'password'      => $row->password,
+		'images'        => $row->images,
 		'id_user_level' => $row->id_user_level,
-		'is_aktif' => $row->is_aktif,
+		'is_aktif'      => $row->is_aktif,
 	    );
             $this->template->load('template','user/tbl_user_read', $data);
         } else {
@@ -47,18 +47,19 @@ class User extends CI_Controller
     public function create() 
     {
         $data = array(
-            'button' => 'Create',
-            'action' => site_url('user/create_action'),
-	    'id_users' => set_value('id_users'),
-	    'full_name' => set_value('full_name'),
-	    'email' => set_value('email'),
-	    'password' => set_value('password'),
-	    'images' => set_value('images'),
+            'button'        => 'Create',
+            'action'        => site_url('user/create_action'),
+	    'id_users'      => set_value('id_users'),
+	    'full_name'     => set_value('full_name'),
+	    'email'         => set_value('email'),
+	    'password'      => set_value('password'),
+	    'images'        => set_value('images'),
 	    'id_user_level' => set_value('id_user_level'),
-	    'is_aktif' => set_value('is_aktif'),
+	    'is_aktif'      => set_value('is_aktif'),
 	);
         $this->template->load('template','user/tbl_user_form', $data);
     }
+    
     
     public function create_action() 
     {
@@ -67,13 +68,17 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            $password       = $this->input->post('password',TRUE);
+            $options        = array("cost"=>4);
+            $hashPassword   = password_hash($password,PASSWORD_BCRYPT,$options);
+            
             $data = array(
-		'full_name' => $this->input->post('full_name',TRUE),
-		'email' => $this->input->post('email',TRUE),
-		'password' => md5($this->input->post('password',TRUE)),
-		'images' => $foto['file_name'],
+		'full_name'     => $this->input->post('full_name',TRUE),
+		'email'         => $this->input->post('email',TRUE),
+		'password'      => $hashPassword,
+		'images'        => $foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif' => $this->input->post('is_aktif',TRUE),
+		'is_aktif'      => $this->input->post('is_aktif',TRUE),
 	    );
 
             $this->User_model->insert($data);
@@ -88,15 +93,15 @@ class User extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
-                'action' => site_url('user/update_action'),
-		'id_users' => set_value('id_users', $row->id_users),
-		'full_name' => set_value('full_name', $row->full_name),
-		'email' => set_value('email', $row->email),
-		'password' => set_value('password', $row->password),
-		'images' => set_value('images', $row->images),
+                'button'        => 'Update',
+                'action'        => site_url('user/update_action'),
+		'id_users'      => set_value('id_users', $row->id_users),
+		'full_name'     => set_value('full_name', $row->full_name),
+		'email'         => set_value('email', $row->email),
+		'password'      => set_value('password', $row->password),
+		'images'        => set_value('images', $row->images),
 		'id_user_level' => set_value('id_user_level', $row->id_user_level),
-		'is_aktif' => set_value('is_aktif', $row->is_aktif),
+		'is_aktif'      => set_value('is_aktif', $row->is_aktif),
 	    );
             $this->template->load('template','user/tbl_user_form', $data);
         } else {
@@ -114,17 +119,17 @@ class User extends CI_Controller
         } else {
             if($foto['file_name']==''){
                 $data = array(
-		'full_name' => $this->input->post('full_name',TRUE),
-		'email' => $this->input->post('email',TRUE),
+		'full_name'     => $this->input->post('full_name',TRUE),
+		'email'         => $this->input->post('email',TRUE),
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif' => $this->input->post('is_aktif',TRUE));
+		'is_aktif'      => $this->input->post('is_aktif',TRUE));
             }else{
                 $data = array(
-		'full_name' => $this->input->post('full_name',TRUE),
-		'email' => $this->input->post('email',TRUE),
-                'images'=>$foto['file_name'],
+		'full_name'     => $this->input->post('full_name',TRUE),
+		'email'         => $this->input->post('email',TRUE),
+                'images'        =>$foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif' => $this->input->post('is_aktif',TRUE));
+		'is_aktif'      => $this->input->post('is_aktif',TRUE));
                 
                 // ubah foto profil yang aktif
                 $this->session->set_userdata('images',$foto['file_name']);
