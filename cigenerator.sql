@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 Des 2017 pada 18.34
+-- Generation Time: 31 Des 2017 pada 17.16
 -- Versi Server: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -39,10 +39,11 @@ CREATE TABLE `tbl_hak_akses` (
 INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (15, 1, 1),
 (19, 1, 3),
-(20, 1, 2),
 (21, 2, 1),
 (24, 1, 9),
-(28, 2, 3);
+(28, 2, 3),
+(29, 2, 2),
+(30, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -67,11 +68,6 @@ INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_a
 (1, 'KELOLA MENU', 'kelolamenu', 'fa fa-server', 0, 'y'),
 (2, 'KELOLA PENGGUNA', 'user', 'fa fa-user-o', 0, 'y'),
 (3, 'level PENGGUNA', 'userlevel', 'fa fa-users', 0, 'y'),
-(4, 'Sample Menu', 'Sample Menu', 'fa fa-graduation-cap', 0, 'y'),
-(5, 'Sample Menu', 'Sample Menu', 'fa fa-bed', 0, 'y'),
-(6, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'y'),
-(7, 'Sample Menu', 'Sample Menu', 'fa fa-area-chart', 0, 'y'),
-(8, 'Sample Menu', 'Sample Menu', 'fa-id-card', 0, 'y'),
 (9, 'Contoh Form', 'welcome/form', 'fa fa-id-card', 0, 'y');
 
 -- --------------------------------------------------------
@@ -103,7 +99,7 @@ CREATE TABLE `tbl_user` (
   `id_users` int(11) NOT NULL,
   `full_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `images` text NOT NULL,
   `id_user_level` int(11) NOT NULL,
   `is_aktif` enum('y','n') NOT NULL
@@ -114,8 +110,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_users`, `full_name`, `email`, `password`, `images`, `id_user_level`, `is_aktif`) VALUES
-(1, 'Nuris Akbar M.Kom', 'nuris.akbar@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'Cover_TIPSTRIK_codeigniter.jpg', 1, 'y'),
-(3, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', '7.png', 2, 'y');
+(1, 'Nuris Akbar M.Kom', 'nuris.akbar@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', 'atomix_user31.png', 1, 'y'),
+(3, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', '7.png', 2, 'y');
 
 -- --------------------------------------------------------
 
@@ -178,7 +174,7 @@ ALTER TABLE `tbl_user_level`
 -- AUTO_INCREMENT for table `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `tbl_menu`
 --
@@ -193,7 +189,7 @@ ALTER TABLE `tbl_setting`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_user_level`
 --
