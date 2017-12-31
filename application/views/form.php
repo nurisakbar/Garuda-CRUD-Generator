@@ -11,7 +11,7 @@
 
                     <div class="box-body">
                         <table class="table table-bordered">
-                            <tr><td width="150">Autocomplate</td><td><input type="text" id="product" name="product" class="form-control ui-autocomplete-input" placeholder="Cari produk ..."></td></tr>
+                            <tr><td width="150">Autocomplate</td><td><input type="text" id="name_user" name="product" class="form-control ui-autocomplete-input" placeholder="Masukan Nama user ..."></td></tr>
                             <tr><td>Select2</td><td><?php echo select2_dinamis('test', 'tbl_user', 'full_name', 'Masukan keyword ...') ?></td></tr>
                             <tr><td>Datalist</td><td><?php echo datalist_dinamis('test', 'tbl_user', 'full_name') ?></td></tr>
                             <tr><td>Combobox</td><td><?php echo cmb_dinamis('test', 'tbl_user', 'full_name', 'id_users') ?></td></tr>
@@ -30,8 +30,8 @@
 <script type="text/javascript">
     $(function() {
         //autocomplete
-        $("#product").autocomplete({
-            source: "http://localhost/cigenerator/index.php/welcome/autocomplate",
+        $("#name_user").autocomplete({
+            source: "<?php echo base_url()?>/index.php/welcome/autocomplate",
             minLength: 1
         });				
     });

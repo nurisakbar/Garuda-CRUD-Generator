@@ -14,8 +14,12 @@ class Welcome extends CI_Controller {
         //$this->load->view('table');
         $this->template->load('template', 'form');
     }
+    
+    function autocomplate(){
+        autocomplate_json('tbl_user', 'full_name');
+    }
 
-    function autocomplate() {
+    function __autocomplate() {
         $this->db->like('nama_lengkap', $_GET['term']);
         $this->db->select('nama_lengkap');
         $products = $this->db->get('pegawai')->result();
