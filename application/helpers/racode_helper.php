@@ -1,7 +1,10 @@
 <?php
-function cmb_dinamis($name,$table,$field,$pk,$selected=null){
+function cmb_dinamis($name,$table,$field,$pk,$selected=null,$order=null){
     $ci = get_instance();
     $cmb = "<select name='$name' class='form-control'>";
+    if($order){
+        $ci->db->order_by($field,$order);
+    }
     $data = $ci->db->get($table)->result();
     foreach ($data as $d){
         $cmb .="<option value='".$d->$pk."'";
