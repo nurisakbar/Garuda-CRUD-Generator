@@ -26,18 +26,18 @@ if ($jenis_tabel == 'reguler_table') {
 $string .= "\n\n    public function index()
     {
         \$q = urldecode(\$this->input->get('q', TRUE));
-        \$start = intval(\$this->input->get('start'));
+        \$start = intval(\$this->uri->segment(3));
         
         if (\$q <> '') {
-            \$config['base_url'] = base_url() . '$c_url/index.html?q=' . urlencode(\$q);
-            \$config['first_url'] = base_url() . '$c_url/index.html?q=' . urlencode(\$q);
+            \$config['base_url'] = base_url() . '$index.php/c_url/index.html?q=' . urlencode(\$q);
+            \$config['first_url'] = base_url() . 'index.php/$c_url/index.html?q=' . urlencode(\$q);
         } else {
-            \$config['base_url'] = base_url() . '$c_url/index.html';
-            \$config['first_url'] = base_url() . '$c_url/index.html';
+            \$config['base_url'] = base_url() . 'index.php/$c_url/index/';
+            \$config['first_url'] = base_url() . 'index.php/$c_url/index/';
         }
 
         \$config['per_page'] = 10;
-        \$config['page_query_string'] = TRUE;
+        \$config['page_query_string'] = FALSE;
         \$config['total_rows'] = \$this->" . $m . "->total_rows(\$q);
         \$$c_url = \$this->" . $m . "->get_limit_data(\$config['per_page'], \$start, \$q);
         \$config['full_tag_open'] = '<ul class=\"pagination pagination-sm no-margin pull-right\">';
