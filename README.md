@@ -2,6 +2,42 @@
 Garuda CRUD Generator adalah CRUD Generator Untuk Framework Codeigniter 3, Library Datatables Serverside Untuk Menampilkan Data Dan Template AdminLTE.
 CRUD Generator Yang Saya Gunakan Adalah Harviacode Yang Sudah Dimodifikasi Agar Hasil Generate Filenya Sesuai Dengan AdminLTE.
 
+### REST Server (API)
+Garuda CRUD Generator telah di lengkapi dengan fitur `api`, referensi https://github.com/ardisaurus/ci-restserver.git
+
+- Contoh hit API `BASE_URL/api/example/users`
+- Result :
+```
+[
+    {
+        "id": 1,
+        "name": "John",
+        "email": "john@example.com",
+        "fact": "Loves coding"
+    },
+    {
+        "id": 2,
+        "name": "Jim",
+        "email": "jim@example.com",
+        "fact": "Developed on CodeIgniter"
+    },
+    {
+        "0": {
+            "hobbies": [
+                "guitar",
+                "cycling"
+            ]
+        },
+        "id": 3,
+        "name": "Jane",
+        "email": "jane@example.com",
+        "fact": "Lives in the USA"
+    }
+]
+```
+
+
+
 ### Cara Install & Setup
 1.silahkan clone atau download repository ini.<br>
 2.silahkan extrack dan rename nama folder menjadi garuda_crud_generator.<br>
