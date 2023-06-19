@@ -10,7 +10,7 @@ class " . $c . " extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        is_login();
+        //is_login();
         \$this->load->model('$m');
         \$this->load->library('form_validation');";
 
