@@ -11,3 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+# Load phpdotenv
+$hook['pre_system'] = function() {
+    $dotenv = Dotenv\Dotenv::create(FCPATH);
+    $dotenv->load();
+   };
